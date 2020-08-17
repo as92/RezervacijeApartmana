@@ -1,0 +1,31 @@
+<h1>Uredi rezervaciju</h1>
+<mat-dialog-content [formGroup]="form">
+  <mat-form-field>
+    <mat-select placeholder="Broj sobe" matSelect formControlName="brojdodaj" [(ngModel)]="rez.brojSobe"
+      (ngModelChange)="azurirajProvjeru()">
+      <mat-option *ngFor="let sobe of (sobes$ | async)" [value]="sobe.brojSobe">
+        {{sobe.brojSobe}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="hasError('brojdodaj', 'required')">Odaberite sobu!</mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input type="text" placeholder="Ime gosta" formControlName="gost" matInput [(ngModel)]="rez.imeGosta" />
+    <mat-error *ngIf="hasError('gost', 'required')">Ime gosta je obavezno!</mat-error>
+  </mat-form-field>
+  <br>
+  <br>
+  <mat-form-field>
+    <input matInput [(ngModel)]="raspon" (ngModelChange)="provjeri()" [owlDateTimeFilter]="myFilter" type="text"
+      [owlDateTime]="dt3" [selectMode]="'range'" formControlName="raspon" [min]="min" [owlDateTimeTrigger]="dt3"
+      placeholder="Dolazak-Odlazak">
+    <owl-date-time #dt3></owl-date-time>
+    <mat-error *ngIf="hasError('raspon', 'required')">Datum rezervacije je obavezan!</mat-error>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button [disabled]="!form.valid || !form.dirty || raspon[1]===null" (click)="uredi()" mat-raised-button
+    color="primary" class="btn btn-round">Uredi</button>
+  <button mat-button (click)="zatvori()" mat-raised-button color="warn" class="btn btn-round">Odustani</button>
+</mat-dialog-actions>

@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~ng-pick-datetime/assets/style/picker.min.css";
+// @import '~@angular/cdk/overlay-prebuilt.css';
+
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+//@import swal from 'sweetalert';
+
+// .pozadina {
+
+//   background-image: url('src/app/stine.jpg');
+
+// }
+
+.swal-footer {
+  text-align: center;
+  justify-content: center;
+
+}
+
+.owl-dt-container {
+  //width: 100%;
+  // top: 400px;
+  right: 15%;
+  height: 50%;
+  font-size: 15px;
+}
+
+.swal-button {
+  width: 100px;
+}
+
+html,
+body {
+
+  height: 100%;
+  width: 100%;
+}

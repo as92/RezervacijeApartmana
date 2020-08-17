@@ -1,0 +1,42 @@
+mat-dialog-content {
+  text-align: center;
+  justify-content: center;
+  margin-top: 5%;
+  font-family: Cambria,
+    Cochin,
+    Georgia,
+    Times,
+    'Times New Roman',
+    serif;
+
+}
+
+mat-dialog-actions {
+
+  text-align: center;
+  justify-content: center;
+  font-family: Cambria,
+    Cochin,
+    Georgia,
+    Times,
+    'Times New Roman',
+    serif;
+
+}
+
+mat-form-field {
+  width: 60%;
+  font-family: Cambria,
+    Cochin,
+    Georgia,
+    Times,
+    'Times New Roman',
+    serif;
+}
+
+h1 {
+  text-align: center;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin-top: 5%;
+
+}

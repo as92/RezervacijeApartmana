@@ -1,0 +1,23 @@
+<div class="dugme">
+  <nav>
+    <button matTooltip="Dodaj sobu" id="botun" mat-raised-button onclick="this.blur();" (click)="openDialogDodaj()"
+      class="btn btn-primary">+</button>
+  </nav>
+</div>
+<div *ngIf="(sobes$ | async)?.length>0" class="card-container">
+  <a *ngFor="let sobe of (sobes$ | async)" class="card">
+    <h3>Broj sobe: {{sobe.brojSobe}}<br>Tip sobe: {{sobe.tipSobe}}</h3>
+    <div class="uredi">
+      <button (click)="openDialogUredi(sobe.sobeId)" style="margin: 5px;" type="button"
+        class="btn btn-success">Uredi</button>
+      <button style="margin: 5px;" (click)="delete(sobe.sobeId)" type="button" class="btn btn-danger">Izbriši</button>
+    </div>
+  </a>
+</div>
+<div *ngIf="(sobes$ | async)?.length===0">
+  <h1 style=" font-family: 'Franklin Gothic Medium' , 'Arial Narrow' , Arial,
+    sans-serif ; text-align: center; background-color: red;
+  animation-name: example;
+  animation-duration: 20s; ">Molimo
+    dodajte sobe!!</h1>
+</div>

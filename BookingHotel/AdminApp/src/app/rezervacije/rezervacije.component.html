@@ -1,0 +1,41 @@
+<div class="dugme">
+  <nav>
+    <button matTooltip="Dodaj rezervaciju" mat-raised-button onclick="this.blur();" (click)="openDialogDodaj()"
+      class="btn btn-primary">+</button>
+    <button matTooltip="Pronađi rezervacije" mat-raised-button onclick="this.blur();" (click)="openDialogTrazi()"
+      class="btn btn-primary"><i class="fa fa-filter"></i></button>
+
+  </nav>
+</div>
+<div *ngIf="rezervacije.length>0" class="skrol">
+  <table class="table table-bordered table-fixed">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col">Broj sobe</th>
+        <th scope="col">Dolazak</th>
+        <th scope="col">Odlazak</th>
+        <th scope="col">Ime gosta</th>
+      </tr>
+    </thead>
+    <tbody style="background-color: cornflowerblue;">
+      <tr *ngFor="let rezervacija of rezervacije">
+        <td style="width:5%">
+          <button (click)="openDialogUredi(rezervacija.rezervacijeId)" type="button"
+            class="btn btn-primary">Uredi</button>
+        </td>
+        <td style="width:5%"><button type="button" (click)="izbrisi(rezervacija.rezervacijeId)"
+            class="btn btn-danger">Briši</button></td>
+        <td>{{rezervacija.brojSobe}}</td>
+        <td>{{rezervacija.datumDolaska | date:'dd.MM.yyyy HH:mm EEEE'}}</td>
+        <td>{{rezervacija.datumOdlaska | date:'dd.MM.yyyy HH:mm EEEE'}}</td>
+        <td>{{rezervacija.imeGosta}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- <div *ngIf="(rezervacijes$ |async)?.length===0 || rezervacije.length===0" class="dugme">
+  <h1>Nema traženih rezervacija</h1>
+</div> -->

@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>Pronađi rezervacije <strong></strong></h1>
+<mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Odaberi sobu</mat-label>
+    <mat-select matSelect [(ngModel)]="broj">
+      <mat-option value="">Sve rezervacije</mat-option>
+      <mat-option *ngFor="let soba of sobe" [value]="soba.brojSobe">
+        Rezervacije u sobi br. {{soba.brojSobe}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <input placeholder="Datum" [min]="min" matInput [(ngModel)]="datum" [owlDateTime]="dt4"
+      [owlDateTimeTrigger]="dt4" />
+    <owl-date-time #dt4></owl-date-time>
+  </mat-form-field>
+  <mat-form-field>
+    <input type="text" placeholder="Ime gosta" matInput [(ngModel)]="ime" />
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="trazi()" mat-raised-button color="primary">Traži</button>
+  <button mat-button (click)="zatvori()" mat-raised-button color="warn">Odustani</button>
+</mat-dialog-actions>

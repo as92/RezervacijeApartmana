@@ -1,0 +1,24 @@
+<h1>Uredi sobu</h1>
+<mat-dialog-content [formGroup]="form">
+  <mat-form-field>
+    <input type="number" placeholder="Broj sobe" formControlName="broj" matInput [(ngModel)]="broj" />
+    <mat-error *ngIf="hasError('broj', 'required')">Broj sobe je obavezan!</mat-error>
+  </mat-form-field>
+  <br>
+  <br>
+  <mat-form-field>
+    <mat-label>Odaberi sobu</mat-label>
+    <mat-select matSelect [(ngModel)]="tip" formControlName="tip2">
+      <!-- <mat-option value="">--Izaberi tip sobe--</mat-option> -->
+      <mat-option *ngFor="let t of tips" [value]="t">
+        {{t}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="hasError('tip2', 'required')">Odaberite tip sobe!</mat-error>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button [disabled]="!form.valid || !form.dirty" (click)="uredi()" mat-raised-button color="primary"
+    class="btn btn-round">Dodaj</button>
+  <button mat-button (click)="zatvori()" mat-raised-button color="warn" class="btn btn-round">Odustani</button>
+</mat-dialog-actions>
